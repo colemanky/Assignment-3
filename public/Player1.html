@@ -20,12 +20,17 @@
             });
 
             socket.on('color_change', function(data) {
-                //create rgb color string for css
-                let colorStr = 'rgb(' + data.r + ',' + data.g + ',' + data.b + ')';
-                console.log("color received: " + colorStr);
+                for (var key in data) {
+                        console.log(key, data[key]); //It is reading it
+                        //Just cant figure out how to edit the model with an if statement
+                        //Then it would be just simple click checking on the models in the correct order
+                    }           
+                //create rgb color string for csslet 
+                // let colorStr = 'rgb(' + data.r + ',' + data.g + ',' + data.b + ')';
+                // console.log("color received: " + colorStr);
 
-                //set background color with received color
-                document.body.style.backgroundColor = colorStr;
+                // //set background color with received color
+                // document.body.style.backgroundColor = colorStr;
             });
         </script>
 
@@ -34,7 +39,7 @@
         <a-scene shadow="type:basic;">
                 <a-entity light="type:directional; castShadow:true; intensity:0.6; shadowBias:-0.000001; shadowMapWidth:1024; shadowMapHeight:1024;" position="-0.5 1 1"></a-entity>
                 <a-entity light="type: ambient; intensity: 1.0; color:#bbb;"></a-entity>
-        <a-gltf-model src="/models/Blue.glb" scale="0.5 0.5 0.5" position="0 0 -100" shadow="cast:true; receive:true;"></a-gltf-model>
+        <a-gltf-model id="blue" src="/models/Blue.glb" scale="0.5 0.5 0.5" position="0 0 -100" shadow="cast:true; receive:true;"></a-gltf-model>
         <a-gltf-model src="/models/Yellow.glb" scale="0.5 0.5 0.5" position="0 0 -100"></a-gltf-model>
         <a-gltf-model src="/models/Green.glb" scale="0.5 0.5 0.5" position="0 0 -100"></a-gltf-model>
         <a-gltf-model src="/models/Red.glb" scale="0.5 0.5 0.5" position="0 0 -100"></a-gltf-model>

@@ -47,9 +47,12 @@ socketIO.on('connection', function(socket) {
         console.log('yellow event heard');
         socketIO.sockets.emit('color_change', {r:255, g:255, b:0});
     });
+
+    //Trying to figure out how to pass an array
     socket.on('code', function(data) {
-        console.log('code event heard');
-        socketIO.sockets.emit('color_change', {r:0, g:0, b:0});
+        var newdata=JSON.parse(data)
+        console.log(newdata);
+        socketIO.sockets.emit('color_change', newdata);
     });
 });
 

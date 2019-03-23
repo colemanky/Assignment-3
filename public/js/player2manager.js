@@ -38,7 +38,7 @@ function send(){
 }
 
 function updateUsers(){
-  socket.emit("code", array);
+  socket.emit("code", JSON.stringify(array));
 }
 
 function display_array()
